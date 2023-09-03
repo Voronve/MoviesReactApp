@@ -1,13 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Counter from './components/Counter/counter';
-
+import SearchForm from './components/SearchForm/searchForm';
+import onSearch from './helpers/onSearch';
 
 function App() {
   return (
     <div className="App">
       <Counter initialValue={0} />
+      <SearchForm input='Initial input' onSearch={ onSearch }/>
     </div>
   );
 }
