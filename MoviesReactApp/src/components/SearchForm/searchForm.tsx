@@ -14,13 +14,6 @@ export default function SearchForm({ input, onSearch }: SearchFormProps) {
         state.onSearch(state.search);
     }
 
-    const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
-        if (event.key === 'Enter') {
-            event.preventDefault();
-            state.onSearch(state.search);
-        }
-      };
-
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         setState({...state, search: event.currentTarget.value});
     };
@@ -34,8 +27,7 @@ export default function SearchForm({ input, onSearch }: SearchFormProps) {
                     className="searchFormElement"
                     type="text"
                     placeholder="What do you want to watch?"
-                    onChange={handleChange}
-                    onKeyDown={handleKeyDown}/>
+                    onChange={handleChange}/>
                 <button className="searchFormElement" type="submit">Search</button>
             </form>
         </div>
