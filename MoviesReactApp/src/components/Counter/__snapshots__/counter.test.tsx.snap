@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Counter component Testing Counter snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="counterContainer "
+  >
+    <div
+      class="counterNumber"
+    >
+      0
+    </div>
+    <div
+      class="buttonContainer"
+    >
+      <button
+        class="increment"
+      >
+        Push to add one
+      </button>
+      <button
+        class="decrement"
+      >
+        Push to substract one
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
