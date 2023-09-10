@@ -36,7 +36,7 @@ describe("Testing SearchForm component", () => {
             target: { value: customInput },
         });
 
-        textbox.focus();
+        //textbox.focus();
 
         fireEvent.keyDown(textbox, {key: 'Enter', code: 'Enter', charCode: 13});
 
