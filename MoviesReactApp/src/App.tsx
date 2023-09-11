@@ -1,4 +1,5 @@
 import React from 'react';
+import config from './config.json';
 import './App.css';
 import Counter from './components/Counter/counter';
 import SearchForm from './components/SearchForm/searchForm';
@@ -9,11 +10,11 @@ import onSelect from './helpers/onSelect';
 function App() {
   return (
     <div className="App">
-      <Counter initialValue={0} />
-      <SearchForm input='Initial input' onSearch={ onSearch }/>
-      <GanreSelect genreNameList={['ALL', 'DOCUMENTARY', 'COMEDY', 'HORROR', 'CRIME']} selectedGenre="ALL" onSelect={ onSelect }/>
+      <Counter initialValue={config.initialCounterValue} />
+      <SearchForm input={config.initialInput} onSearch={ onSearch }/>
+      <GanreSelect genreNameList={config.janres} selectedGenre="ALL" onSelect={ onSelect }/>
     </div>
   );
 }
-
+export const select = onSelect;
 export default App;
