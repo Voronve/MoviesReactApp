@@ -1,8 +1,23 @@
 
   /* Style for the form */
+
+  .searchContainer {
+    text-align: left;
+    padding: 100px 50px;
+    background-color: black;
+    background-blend-mode: multiply;
+    background: rgba(0, 0, 0, 0.5);
+    background-image: url('./images/Netflix.jpg');
+  }
+
+  .searchContainer h1 {
+    font: 40px 'Montserrat', sans-serif;
+    color: white;
+    margin-bottom: 50px;
+  }
+
   .searchForm {
     display: flex;
-    padding: 0 20px 0 20px;
   }
 
   .searchFormElement {

@@ -1,15 +1,26 @@
 import React, { Component } from 'react';
 import './counter.css';
 
+ /**
+ * Default value when user opens the page
+ */
 interface counterProps {
+    /**
+     * Default value when user opens the page
+     */
     initialValue: number
 };
-
+ /**
+ * Default value when user opens the page
+ */
 interface CounterState {
     value: number
 };
 
-export default class Counter extends Component<counterProps> {
+/**
+ * Default value when user opens the page
+ */
+export class Counter extends Component<counterProps> {
     state = {} as CounterState;
 
     constructor(props: {initialValue: number}) {

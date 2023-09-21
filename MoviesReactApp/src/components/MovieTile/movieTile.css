@@ -1,0 +1,21 @@
+.movieTile {
+    color: #8b8888;
+    width: 322px;
+    cursor: pointer;
+    margin-bottom: 40px;
+}
+
+.movieTile .movieInfo .flex-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.movieTile .movieInfo .ganres {
+    text-align: start;
+}
+
+.movieTile .movieInfo .year {
+    border: 1px solid #8b8888;
+    border-radius: 3px;
+    padding: 2px 7px;
+}

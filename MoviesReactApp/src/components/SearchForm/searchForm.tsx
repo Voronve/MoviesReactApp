@@ -1,12 +1,19 @@
 import React, { FormEvent, KeyboardEvent, ChangeEvent, useState } from 'react';
 import './searchForm.css';
 
-interface SearchFormProps {
+export interface SearchFormProps {
+/**
+ * Initial search value
+ */
  input: string,
+/**
+ * Callbeck function to be called on search
+ */
  onSearch: (searchText: string) => void
 }
 
-export default function SearchForm({ input, onSearch }: SearchFormProps) {
+/** Form for searching movies */
+export function SearchForm({ input, onSearch }: SearchFormProps) {
     const [state, setState] = useState({ search: input, onSearch });
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) =>{
@@ -26,9 +33,8 @@ export default function SearchForm({ input, onSearch }: SearchFormProps) {
     };
 
     return (
-        <>
-        <h1>FIND YOUR MOVIE</h1>
         <div className="searchContainer">
+            <h1>FIND YOUR MOVIE</h1>
             <form className="searchForm" onSubmit={handleSubmit}>
                 <input
                     className="searchFormElement"
@@ -39,6 +45,5 @@ export default function SearchForm({ input, onSearch }: SearchFormProps) {
                 <button className="searchFormElement" type="submit">Search</button>
             </form>
         </div>
-        </>
     );
 }

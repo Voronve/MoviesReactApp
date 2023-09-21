@@ -1,4 +1,4 @@
-import Counter from './counter';
+import { Counter } from './counter';
 import { fireEvent, render, screen } from '@testing-library/react';
 
 describe("Testing Counter component", () => {

@@ -1,0 +1,61 @@
+.sortBywrapper {
+    min-width: 350px;
+    font: 20px 'Montserrat', sans-serif;
+}
+
+.sortBywrapper nav {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    height: 100%;
+    align-items: center;
+}
+
+.sortBywrapper nav div {
+    vertical-align: middle;
+}
+
+.dropdown-menu {
+    color: white;
+    margin: 0;
+    cursor: pointer;
+    position: absolute;
+    top: 26%;
+    left: 100px;
+    z-index: 1;
+}
+
+.sortByText, .dropdown-menu li{
+    color: #8b8888;
+}
+
+.dropdown-menu li {
+    cursor: pointer;
+    list-style: none;
+    display: none;
+}
+
+.dropdown-menu li.active {
+    display: block;
+}
+
+.dropdown-menu li:hover, .dropdown-menu li.active {
+    color: white;
+}
+
+.sortBywrapper nav {
+    position: relative;
+}
+
+.sortBywrapper:hover .dropdown-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.sortBywrapper:hover .dropdown-menu li{
+    display: block;
+}
+
+.arrowDown {
+    color: red;
+}

@@ -1,0 +1,13 @@
+.movieListWrapper {
+    background-color: #232323;
+    padding: 0 50px;
+}
+.movieListWrapper hr {
+    color: #080707;
+}
+
+.genreDashboard {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 3px solid #424242;
+}

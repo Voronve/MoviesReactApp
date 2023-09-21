@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing MovieDetails component Testing movie details rendering 1`] = `
+<DocumentFragment>
+  <div
+    class="movieDetailsWrapper"
+  >
+    <div
+      class="poster"
+    >
+      <img
+        alt="testImage"
+        src="/media/testImage"
+        width="322px"
+      />
+    </div>
+    <div
+      class="movieDataWrapper"
+    >
+      <div
+        class="titleAndRating"
+      >
+        <div
+          class="title"
+        >
+          testImage
+        </div>
+        <div
+          class="rating"
+        >
+          9.9
+        </div>
+      </div>
+      <div
+        class="ganres"
+      >
+        DRAMA,BIOPIC
+      </div>
+      <div
+        class="yearAndDuration"
+      >
+        <div
+          class="year"
+        >
+          1987
+        </div>
+        <div
+          class="duration"
+        >
+          infinity
+        </div>
+      </div>
+      <div
+        class="description"
+      >
+        lorem ipsum
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

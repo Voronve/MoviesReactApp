@@ -1,4 +1,4 @@
-import GanreSelect from './genreSelect';
+import { GenreSelect } from './genreSelect';
 import { fireEvent, render, screen } from '@testing-library/react';
 
 describe("Testing GanreSelect component", () => {
@@ -7,7 +7,7 @@ describe("Testing GanreSelect component", () => {
     const selectedGenre = "ALL";
 
     beforeEach(() => {
-        render(<GanreSelect genreNameList = {genreNameList} selectedGenre = {selectedGenre} onSelect = {onSelect}/>);
+        render(<GenreSelect genreNameList = {genreNameList} selectedGenre = {selectedGenre} onSelect = {onSelect}/>);
     });
 
     test("Testing genres rendering ", () => {
