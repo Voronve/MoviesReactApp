@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing MovieTile component Testing movie tile rendering 1`] = `
+<DocumentFragment>
+  <div
+    class="movieTile"
+  >
+    <img
+      alt="Barbie"
+      src="/media/Comedy/Barbie.jpg"
+      width="322px"
+    />
+    <div
+      class="movieInfo"
+    >
+      <div
+        class="flex-container"
+      >
+        <div
+          class="name"
+        >
+          Barbie
+        </div>
+        <div
+          class="year"
+        >
+          2023
+        </div>
+      </div>
+      <div
+        class="ganres"
+      >
+        COMEDY,HORROR
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

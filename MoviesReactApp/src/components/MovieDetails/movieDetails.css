@@ -1,0 +1,54 @@
+.movieDetailsWrapper {
+    padding: 50px;
+    display: flex;
+    font-family: 'Montserrat', sans-serif;;
+}
+
+.movieDetailsWrapper .movieDataWrapper .titleAndRating {
+    display: flex;
+}
+
+.movieDetailsWrapper .movieDataWrapper .yearAndDuration {
+    display: flex;
+}
+
+.movieDataWrapper {
+    margin: 0 40px;
+}
+
+.movieDataWrapper .titleAndRating {
+    display: flex;
+    color: white;
+    align-items: center;
+}
+
+.movieDataWrapper .titleAndRating .title{
+   font-size: 50px;
+   text-transform: uppercase;
+}
+
+.movieDataWrapper .titleAndRating .rating{
+    margin-left: 10px;
+    align-self:center;
+    text-align: center;
+    height: 50px;
+    width: 50px;
+    border: 2px solid white;
+    border-radius: 50%;
+    line-height: 50px;
+    font-size: 20px;
+}
+
+.movieDataWrapper .ganres, .movieDataWrapper .description {
+    color: #8b8888;
+}
+
+.movieDataWrapper .yearAndDuration {
+    color: red;
+    margin: 30px 0;
+    font-size: 25px;
+}
+
+.movieDataWrapper .duration {
+    margin-left: 50px;;
+}
