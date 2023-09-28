@@ -5,6 +5,8 @@ import { GenreSelect } from '../GenreSelect/genreSelect';
 import { MovieList } from '../MovieList/movieList';
 import { MovieDetails } from '../MovieDetails/movieDetails';
 import { SortControl } from '../SortControl/sortControl';
+import { Dialog } from '../Dialog/dialog';
+
 
 export interface MovieInfo {
     /** Image url*/

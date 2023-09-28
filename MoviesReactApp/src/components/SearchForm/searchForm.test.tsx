@@ -12,7 +12,7 @@ describe("Testing SearchForm component", () => {
 
     test("Testing SearchForm input initial value", () => {
 
-        fireEvent.click(screen.getByRole('button'));
+        fireEvent.click(screen.getByText('Search'));
 
         expect(onSearch).toBeCalledWith('Initial input');
     });
@@ -23,7 +23,7 @@ describe("Testing SearchForm component", () => {
             target: { value: customInput },
         });
 
-        fireEvent.click(screen.getByRole('button'));
+        fireEvent.click(screen.getByText('Search'));
 
         expect(onSearch).toBeCalledWith(customInput);
     });

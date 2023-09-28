@@ -20,7 +20,7 @@
     align-items: center;
 }
 
-button {
+.increment, .decrement {
     font-size: 1rem;
     cursor: pointer;
     padding: 0.5rem 1rem;
@@ -34,7 +34,7 @@ button {
     min-width: 200px;
 }
 
-button:active {
+button.increment:active, button.decrement:active {
     box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.25);
 }
 
