@@ -34,6 +34,7 @@ export function SearchForm({ input, onSearch }: SearchFormProps) {
 
     return (
         <div className="searchContainer">
+            <button></button>
             <h1>FIND YOUR MOVIE</h1>
             <form className="searchForm" onSubmit={handleSubmit}>
                 <input
