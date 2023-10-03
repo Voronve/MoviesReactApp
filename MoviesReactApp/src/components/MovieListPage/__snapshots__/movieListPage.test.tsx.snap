@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing MovieList page component Testing movie list page rendering  1`] = `
+<DocumentFragment>
+  <div
+    class="movieListWrapper"
+  >
+    <div
+      class="searchContainer"
+    >
+      <h1>
+        FIND YOUR MOVIE
+      </h1>
+      <form
+        class="searchForm"
+      >
+        <input
+          class="searchFormElement"
+          placeholder="What do you want to watch?"
+          type="text"
+        />
+        <button
+          class="searchFormElement"
+          type="submit"
+        >
+          Search
+        </button>
+      </form>
+    </div>
+    <div
+      class="genreDashboard"
+    >
+      <div
+        class="genresListWrapper"
+      >
+        <ul
+          class="genresList"
+        >
+          <li
+            class="selected"
+          >
+            ALL
+          </li>
+          <li
+            class=""
+          >
+            DRAMA
+          </li>
+          <li
+            class=""
+          >
+            ROMANCE
+          </li>
+          <li
+            class=""
+          >
+            ANIMATION
+          </li>
+          <li
+            class=""
+          >
+            ADVENTURE
+          </li>
+          <li
+            class=""
+          >
+            FAMILY
+          </li>
+          <li
+            class=""
+          >
+            COMEDY
+          </li>
+          <li
+            class=""
+          >
+            FANTASY
+          </li>
+          <li
+            class=""
+          >
+            SCIENCE FICTION
+          </li>
+          <li
+            class=""
+          >
+            ACTION
+          </li>
+        </ul>
+      </div>
+      <div
+        class="sortBywrapper"
+      >
+        <nav>
+          <div
+            class="sortByText"
+          >
+            SORT BY
+          </div>
+          <ul
+            class="dropdown-menu"
+          >
+            <li
+              class=""
+            >
+              TITLE
+            </li>
+            <li
+              class=""
+            >
+              RELEASE DATE
+            </li>
+          </ul>
+          <div
+            class="arrowDown"
+          >
+            ▼
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div
+      class="moviesList"
+    />
+  </div>
+</DocumentFragment>
+`;

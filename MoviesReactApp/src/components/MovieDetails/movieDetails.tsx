@@ -1,36 +1,36 @@
 import './movieDetails.css';
-import { MovieInfo } from '../MovieListStateHandler/movieListStateHandler';
+import { MovieInfo } from '../MovieListPage/movieListPage';
 
 interface MovieDetailsProps {
     /** All movie data*/
-    movieData: MovieInfo
+    movieData: MovieInfo | null;
 }
 
 /** Movie details section*/
 export function MovieDetails({ movieData }: MovieDetailsProps ) {
-    if(!Object.keys(movieData).length) {
+    if(!movieData || !Object.keys(movieData).length) {
 
         return null;
     }
 
-    const {image, title, releaseYear, rating, genres, duration, description} = movieData;
+    const {poster_path, title, release_date, vote_average, genres, runtime, overview} = movieData;
 
     return (
         <div className="movieDetailsWrapper">
             <div className='poster'>
-                <img src={`/media/${image}`} alt={title} width="322px"/>
+                <img src={`${poster_path}`} alt={title} width="322px"/>
             </div>
             <div className='movieDataWrapper'>
                 <div className="titleAndRating">
                     <div className="title">{title}</div>
-                    <div className="rating">{rating}</div>
+                    <div className="vote_average">{vote_average}</div>
                 </div>
                 <div className="ganres">{genres.join()}</div>
                 <div className="yearAndDuration">
-                    <div className="year">{releaseYear}</div>
-                    <div className="duration">{duration}</div>
+                    <div className="year">{release_date}</div>
+                    <div className="runtime">{runtime}</div>
                 </div>
-                <div className="description">{description}</div>
+                <div className="overview">{overview}</div>
             </div>
         </div>
     );

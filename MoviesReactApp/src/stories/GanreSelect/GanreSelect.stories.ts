@@ -17,16 +17,14 @@ const meta = {
 
   export const FirstSelected: Story = {
     args: {
-        genreNameList: ['First', 'Second', 'Third'],
-        selectedGenre: 'First',
+        selectedGenre: 'All',
         onSelect
     },
   };
 
   export const SecondSelected: Story = {
     args: {
-        genreNameList: ['First', 'Second', 'Third'],
-        selectedGenre: 'Second',
+        selectedGenre: 'Drama',
         onSelect
     },
   };

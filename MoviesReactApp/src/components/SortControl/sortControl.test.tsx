@@ -6,13 +6,13 @@ describe("Testing SortControl component", () => {
 
     test("Testing SortControl rendering", () => {
 
-        const { asFragment } = render(<SortControl sortBy={sortBy} />);
+        const { asFragment } = render(<SortControl activeSorting={sortValue.default} sortBy={sortBy} />);
 
         expect(asFragment()).toMatchSnapshot();
     });
 
     test("Testing that callback function is working as expected", () => {
-        render(<SortControl sortBy={sortBy} />);
+        render(<SortControl activeSorting={sortValue.default} sortBy={sortBy} />);
 
         fireEvent.click(screen.getByText("RELEASE DATE"));
         expect(sortBy).toBeCalledWith(sortValue.date);

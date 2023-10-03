@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { SortControl } from '../../components/SortControl/sortControl';
+import { SortControl, sortValue } from '../../components/SortControl/sortControl';
 
 const meta = {
     title: 'New components/SortControl',
@@ -15,6 +15,7 @@ const meta = {
 
   export const Initial: Story = {
     args: {
+        activeSorting: sortValue.default,
         sortBy: (value: string) => alert(`This is testing call from callback ${value}`)
     },
   };

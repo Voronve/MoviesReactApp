@@ -1,17 +1,16 @@
 import { MovieForm } from './movieForm';
-import { genres } from '../MovieListStateHandler/movieListStateHandler';
 import { fireEvent, render, screen } from '@testing-library/react';
 
 describe("Testing MovieForm component", () => {
     const onClick = jest.fn();
     const movieDataMock = {
-        image: "Comedy/Barbie.jpg",
+        poster_path: "Comedy/Barbie.jpg",
         title: "Barbie",
-        releaseYear: 2023,
-        genres: ["COMEDY", "HORROR"] as genres[],
-        rating: 8.9,
-        duration: "2h 34min",
-        description: "Test description"
+        release_date: 2023,
+        genres: ["COMEDY", "HORROR"],
+        vote_average: 8.9,
+        runtime: "2h 34min",
+        overview: "Test overview"
     }
 
     test("Testing movie form rendering", () => {

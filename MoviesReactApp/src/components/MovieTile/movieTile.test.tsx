@@ -1,14 +1,13 @@
 import { MovieTile } from './movieTile';
-import { genres } from '../MovieListStateHandler/movieListStateHandler';
 import { fireEvent, render, screen } from '@testing-library/react';
 
 describe("Testing MovieTile component", () => {
     const onClick = jest.fn();
     const movieDataMock = {
-        image: "Comedy/Barbie.jpg",
+        poster_path: "Comedy/Barbie.jpg",
         title: "Barbie",
-        releaseYear: 2023,
-        genres: ["COMEDY", "HORROR"] as genres[],
+        release_date: 2023,
+        genres: ["COMEDY", "HORROR"],
         onClick
     }
 

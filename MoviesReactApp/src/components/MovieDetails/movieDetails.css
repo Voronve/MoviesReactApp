@@ -27,7 +27,7 @@
    text-transform: uppercase;
 }
 
-.movieDataWrapper .titleAndRating .rating{
+.movieDataWrapper .titleAndRating .vote_average{
     margin-left: 10px;
     align-self:center;
     text-align: center;
@@ -39,7 +39,7 @@
     font-size: 20px;
 }
 
-.movieDataWrapper .ganres, .movieDataWrapper .description {
+.movieDataWrapper .ganres, .movieDataWrapper .overview {
     color: #8b8888;
 }
 
@@ -49,6 +49,6 @@
     font-size: 25px;
 }
 
-.movieDataWrapper .duration {
+.movieDataWrapper .runtime {
     margin-left: 50px;;
 }

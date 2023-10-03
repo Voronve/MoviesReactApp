@@ -1,20 +1,19 @@
 import './movieList.css'
 import { MovieTile } from '../MovieTile/movieTile';
-import { genres } from '../MovieListStateHandler/movieListStateHandler';
-
+import { MovieInfo } from '../MovieListPage/movieListPage';
 interface movieListProps {
     /** Movie list*/
     list: {
-        image: string;
+        poster_path: string;
         title: string;
-        releaseYear: number;
+        release_date: number;
         genres: string[];
-        rating: number;
-        duration: string;
-        description: string;
+        vote_average: number;
+        runtime: string;
+        overview: string;
     }[],
     /** callback function for movie tile been clicked*/
-    movieClick: (title: string) => void;
+    movieClick: (movie: MovieInfo) => void;
 }
 
 /** Movie list section*/
@@ -23,15 +22,15 @@ export function MovieList({list, movieClick}: movieListProps) {
     return(
         <div className="moviesList">
             {
-                list.map( movie => { 
+                list.map( movie => {
                     return(
                         <MovieTile movieData={{
-                            image: movie.image,
+                            poster_path: movie.poster_path,
                             title: movie.title,
-                            releaseYear: movie.releaseYear,
-                            genres: movie.genres as genres[],
-                            onClick: movieClick}}
-                            key={movie.title}/>
+                            release_date: movie.release_date,
+                            genres: movie.genres,
+                            onClick: () => movieClick(movie)}}
+                            key={movie.poster_path}/>
                         )})
             }
         </div>

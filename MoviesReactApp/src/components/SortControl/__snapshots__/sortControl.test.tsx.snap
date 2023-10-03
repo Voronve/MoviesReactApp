@@ -15,7 +15,7 @@ exports[`Testing SortControl component Testing SortControl rendering 1`] = `
         class="dropdown-menu"
       >
         <li
-          class="active"
+          class=""
         >
           TITLE
         </li>

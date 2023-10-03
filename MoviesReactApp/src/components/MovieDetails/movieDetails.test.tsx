@@ -6,13 +6,13 @@ describe("Testing MovieDetails component", () => {
     test("Testing movie details rendering", () => {
 
         const movieInfo = {
-            image: 'testImage',
+            poster_path: 'testImage',
             title:'testImage',
-            releaseYear: 1987,
+            release_date: 1987,
             genres: ["DRAMA", "BIOPIC"],
-            rating: 9.9,
-            duration: 'infinity',
-            description: 'lorem ipsum'
+            vote_average: 9.9,
+            runtime: 'infinity',
+            overview: 'lorem ipsum'
         }
 
         const { asFragment } = render(<MovieDetails movieData = {movieInfo}/>);
