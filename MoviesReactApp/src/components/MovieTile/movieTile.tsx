@@ -1,17 +1,16 @@
 import './movieTile.css';
-import { genres } from '../MovieListStateHandler/movieListStateHandler';
 
 interface movieTileProps {
     /** Movie tile data object*/
     movieData: {
         /** Image url*/
-        image: string,
+        poster_path: string,
         /**Movie title */
         title: string,
         /**Movie release year */
-        releaseYear: number,
+        release_date: number,
         /**Movie janres list */
-        genres: genres[],
+        genres: string[],
         /** callback function for movie tile been clicked*/
         onClick: (movie: string) => void
     }
@@ -19,17 +18,17 @@ interface movieTileProps {
 
 /** Single movie tile*/
 export function MovieTile({ movieData }: movieTileProps ) {
-    const {image, title, releaseYear, genres, onClick} = movieData;
+    const {poster_path, title, release_date, genres, onClick} = movieData;
 
     return (
         <div
         className="movieTile"
         onClick={() => onClick(title)}>
-            <img src={`/media/${image}`} alt={title} width="322px"/>
+            <img src={poster_path} alt={title} width="322px"/>
             <div className="movieInfo">
                 <div className="flex-container">
                     <div className="name">{title}</div>
-                    <div className="year">{releaseYear}</div>
+                    <div className="year">{`${release_date}`.split('-')[0]}</div>
                 </div>
                 <div className="ganres">{genres.join()}</div>
             </div>

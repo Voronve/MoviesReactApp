@@ -1,6 +1,6 @@
 {
     "initialCounterValue": 0,
     "initialInput": "Initial Input",
-    "janres": ["ALL", "DOCUMENTARY", "COMEDY", "HORROR", "CRIME"],
-    "defaultJanre": "ALL"
+    "janres": ["All", "Drama", "Romance", "Animation", "Adventure", "Family", "Comedy", "Fantasy", "Science Fiction", "Action"],
+    "defaultJanre": "All"
 }

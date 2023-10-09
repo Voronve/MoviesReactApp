@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { MovieTile } from '../../components/MovieTile/movieTile';
-import { genres } from '../../components/MovieListStateHandler/movieListStateHandler';
+
 const meta = {
     title: 'New components/MovieTile',
     component: MovieTile,
@@ -16,10 +16,10 @@ const meta = {
   export const Initial: Story = {
     args: {
         movieData: {
-            image: "Crime/ManOnFire.jpg",
+          poster_path: "/media/Crime/ManOnFire.jpg",
             title: "ManOnFire",
-            releaseYear: 2004,
-            genres: [genres.crime],
+            release_date: 2004,
+            genres: ["Fantasy"],
             onClick: (value: string) => alert(`This is testing call from callback ${value}`)
         }
     }

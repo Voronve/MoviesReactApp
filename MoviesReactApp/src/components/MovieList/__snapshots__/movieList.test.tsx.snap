@@ -10,7 +10,7 @@ exports[`Testing MovieList component Testing movie list rendering 1`] = `
     >
       <img
         alt="Barbie"
-        src="/media/Comedy/Barbie.jpg"
+        src="Comedy/Barbie.jpg"
         width="322px"
       />
       <div
@@ -42,7 +42,7 @@ exports[`Testing MovieList component Testing movie list rendering 1`] = `
     >
       <img
         alt="GrandBudapest"
-        src="/media/Comedy/GrandBudapest.jpg"
+        src="Comedy/GrandBudapest.jpg"
         width="322px"
       />
       <div

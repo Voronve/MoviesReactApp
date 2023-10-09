@@ -7,7 +7,7 @@ exports[`Testing MovieTile component Testing movie tile rendering 1`] = `
   >
     <img
       alt="Barbie"
-      src="/media/Comedy/Barbie.jpg"
+      src="Comedy/Barbie.jpg"
       width="322px"
     />
     <div

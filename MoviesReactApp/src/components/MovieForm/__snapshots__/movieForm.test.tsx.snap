@@ -55,13 +55,13 @@ exports[`Testing MovieForm component Testing movie form rendering 1`] = `
         value=""
       />
       <label
-        for="rating"
+        for="vote_average"
       >
         Rating:
       </label>
       <input
-        id="rating"
-        name="rating"
+        id="vote_average"
+        name="vote_average"
         type="text"
         value=""
       />

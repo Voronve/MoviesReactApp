@@ -10,7 +10,7 @@ exports[`Testing MovieDetails component Testing movie details rendering 1`] = `
     >
       <img
         alt="testImage"
-        src="/media/testImage"
+        src="testImage"
         width="322px"
       />
     </div>
@@ -26,7 +26,7 @@ exports[`Testing MovieDetails component Testing movie details rendering 1`] = `
           testImage
         </div>
         <div
-          class="rating"
+          class="vote_average"
         >
           9.9
         </div>
@@ -45,13 +45,13 @@ exports[`Testing MovieDetails component Testing movie details rendering 1`] = `
           1987
         </div>
         <div
-          class="duration"
+          class="runtime"
         >
           infinity
         </div>
       </div>
       <div
-        class="description"
+        class="overview"
       >
         lorem ipsum
       </div>

@@ -14,27 +14,26 @@ export interface SearchFormProps {
 
 /** Form for searching movies */
 export function SearchForm({ input, onSearch }: SearchFormProps) {
-    const [state, setState] = useState({ search: input, onSearch });
+    const [searchQuery, setSearchQuery] = useState(input);
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) =>{
         event.preventDefault();
-        state.onSearch(state.search);
+        onSearch(searchQuery);
     }
 
     const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
         if (event.key === 'Enter') {
             event.preventDefault();
-            state.onSearch(state.search);
+            onSearch(searchQuery);
         }
       };
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-        setState({...state, search: event.currentTarget.value});
+        setSearchQuery(event.currentTarget.value);
     };
 
     return (
         <div className="searchContainer">
-            <button></button>
             <h1>FIND YOUR MOVIE</h1>
             <form className="searchForm" onSubmit={handleSubmit}>
                 <input

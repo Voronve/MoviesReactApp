@@ -1,5 +1,5 @@
 import React, { FormEvent, KeyboardEvent, ChangeEvent, useState } from 'react';
-import { MovieInfo } from '../MovieListStateHandler/movieListStateHandler';
+import { MovieInfo } from '../MovieListPage/movieListPage';
 import './movieForm.css';
 
 export interface MovieFormProps {
@@ -27,7 +27,7 @@ export function MovieForm({ movieInfo, onSubmit }: MovieFormProps) {
                 <input type="text" id="title" name="title" defaultValue={movieInfo ? movieInfo.title : ''}/>
 
                 <label htmlFor="movie-url">Movie URL:</label>
-                <input type="text" id="movie-url" name="movie-url" defaultValue={movieInfo ? movieInfo.image : ''}/>
+                <input type="text" id="movie-url" name="movie-url" defaultValue={movieInfo ? movieInfo.poster_path : ''}/>
 
                 <label>Genre:</label>
                 <input type="text" id="janres" name="janres" defaultValue={(movieInfo && movieInfo.genres) ? movieInfo.genres.join(', ') : ''}/>
@@ -35,18 +35,18 @@ export function MovieForm({ movieInfo, onSubmit }: MovieFormProps) {
 
             <div className="column-1-3">
                 <label htmlFor="release-date">Release Date:</label>
-                <input type="date" id="release-date" name="release-date" defaultValue={movieInfo ? movieInfo.releaseYear : ''}/>
+                <input type="date" id="release-date" name="release-date" defaultValue={movieInfo ? movieInfo.release_date : ''}/>
 
-                <label htmlFor="rating">Rating:</label>
-                <input type="text" id="rating" name="rating" defaultValue={movieInfo ? movieInfo.rating : ''}/>
+                <label htmlFor="vote_average">Rating:</label>
+                <input type="text" id="vote_average" name="vote_average" defaultValue={movieInfo ? movieInfo.vote_average : ''}/>
 
                 <label htmlFor="runtime">Runtime:</label>
-                <input type="text" id="runtime" name="runtime" defaultValue={movieInfo ? movieInfo.duration : ''}/>
+                <input type="text" id="runtime" name="runtime" defaultValue={movieInfo ? movieInfo.runtime : ''}/>
             </div>
 
             <div className="full-width">
                 <label htmlFor="overview">Overview:</label>
-                <textarea id="overview" name="overview" rows={4} defaultValue={movieInfo ? movieInfo.description : ''}></textarea>
+                <textarea id="overview" name="overview" rows={4} defaultValue={movieInfo ? movieInfo.overview : ''}></textarea>
             </div>
             <div className="buttonBlock">
                 <button className="resetButton" onClick={handleReset} >RESET</button>
