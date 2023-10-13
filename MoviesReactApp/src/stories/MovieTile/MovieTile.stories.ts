@@ -16,11 +16,11 @@ const meta = {
   export const Initial: Story = {
     args: {
         movieData: {
+          id: "123",
           poster_path: "/media/Crime/ManOnFire.jpg",
-            title: "ManOnFire",
-            release_date: 2004,
-            genres: ["Fantasy"],
-            onClick: (value: string) => alert(`This is testing call from callback ${value}`)
+          title: "ManOnFire",
+          release_date: 2004,
+          genres: ["Fantasy"],
         }
     }
   };

@@ -4,6 +4,7 @@ import { MovieInfo } from '../MovieListPage/movieListPage';
 interface movieListProps {
     /** Movie list*/
     list: {
+        id: string,
         poster_path: string;
         title: string;
         release_date: number;
@@ -12,12 +13,11 @@ interface movieListProps {
         runtime: string;
         overview: string;
     }[],
-    /** callback function for movie tile been clicked*/
-    movieClick: (movie: MovieInfo) => void;
+    movieSelect: () => void;
 }
 
 /** Movie list section*/
-export function MovieList({list, movieClick}: movieListProps) {
+export function MovieList({list, movieSelect}: movieListProps) {
 
     return(
         <div className="moviesList">
@@ -25,12 +25,13 @@ export function MovieList({list, movieClick}: movieListProps) {
                 list.map( movie => {
                     return(
                         <MovieTile movieData={{
+                            id: movie.id,
                             poster_path: movie.poster_path,
                             title: movie.title,
                             release_date: movie.release_date,
-                            genres: movie.genres,
-                            onClick: () => movieClick(movie)}}
-                            key={movie.poster_path}/>
+                            genres: movie.genres}}
+                            key={movie.poster_path}
+                            movieSelect={movieSelect}/>
                         )})
             }
         </div>

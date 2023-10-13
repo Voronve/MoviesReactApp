@@ -7,7 +7,7 @@ describe("Testing SearchForm component", () => {
     const customInput = "Horror";
 
     beforeEach(() => {
-        render(<SearchForm input = {input} onSearch = {onSearch}/>);
+        render(<SearchForm/>);
     });
 
     test("Testing SearchForm input initial value", () => {

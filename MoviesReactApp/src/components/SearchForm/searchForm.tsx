@@ -1,6 +1,8 @@
 import React, { FormEvent, KeyboardEvent, ChangeEvent, useState } from 'react';
 import './searchForm.css';
-
+import { useSearchParams } from 'react-router-dom';
+import { sortValue } from '../SortControl/sortControl';
+import config from '../../config.json';
 export interface SearchFormProps {
 /**
  * Initial search value
@@ -9,22 +11,29 @@ export interface SearchFormProps {
 /**
  * Callbeck function to be called on search
  */
- onSearch: (searchText: string) => void
+ onSearch: (searchText: string) => void,
 }
 
 /** Form for searching movies */
-export function SearchForm({ input, onSearch }: SearchFormProps) {
-    const [searchQuery, setSearchQuery] = useState(input);
+export function SearchForm() {
+    const [searchQuery, setSearchQuery] = useState('');
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const params = {
+        query: searchParams.get('query') ?? '',
+        sortBy: searchParams.get('sortBy') as sortValue,
+        genre: searchParams.get('genre') ?? config.janres[0]
+    }
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) =>{
         event.preventDefault();
-        onSearch(searchQuery);
+        setSearchParams({...params, query: searchQuery});
     }
 
     const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
         if (event.key === 'Enter') {
             event.preventDefault();
-            onSearch(searchQuery);
+            setSearchParams({...params, query: searchQuery});
         }
       };
 

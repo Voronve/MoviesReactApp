@@ -5,6 +5,7 @@ import { MovieForm } from '../../components/MovieForm/movieForm';
 const onClick = () => alert('This is testing call from onClick');
 const onSubmit = () => alert('This is testing call from onSubmit');
 const mockMovieData = {
+  "id": "123",
   "poster_path": "Comedy/examplePicture.jpg",
   "title": "Test title",
   "release_date": 2014,

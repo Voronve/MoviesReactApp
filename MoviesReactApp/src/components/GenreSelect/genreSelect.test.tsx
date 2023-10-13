@@ -7,7 +7,7 @@ describe("Testing GanreSelect component", () => {
     const selectedGenre = "Drama";
 
     beforeEach(() => {
-        render(<GenreSelect selectedGenre = {selectedGenre} onSelect = {onSelect}/>);
+        render(<GenreSelect selectedGenre = {selectedGenre} onSelect = {onSelect} />);
     });
 
     test("Testing genres rendering ", () => {

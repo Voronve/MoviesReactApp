@@ -6,6 +6,7 @@ describe("Testing MovieDetails component", () => {
     test("Testing movie details rendering", () => {
 
         const movieInfo = {
+            id: "123",
             poster_path: 'testImage',
             title:'testImage',
             release_date: 1987,

@@ -37,3 +37,13 @@
     transform: rotate(360deg);
   }
 }
+
+a {
+  color: inherit; /* Скидання кольору тексту */
+  text-decoration: none; /* Видалення підкреслення */
+  font-style: normal; /* Скидання курсиву */
+  font-weight: normal; /* Скидання жирності шрифту */
+  background: none; /* Видалення фону */
+  border: none; /* Видалення рамки */
+  cursor: pointer; /* Встановлення курсору миші як вказівника */
+}

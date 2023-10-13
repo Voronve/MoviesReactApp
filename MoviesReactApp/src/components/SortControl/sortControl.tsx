@@ -1,3 +1,4 @@
+import { SetURLSearchParams } from 'react-router-dom';
 import './sortControl.css';
 
 export enum sortValue {
@@ -10,7 +11,7 @@ interface sortControlProps {
     /** active sorting value */
     activeSorting: sortValue,
     /** callback function to be called after sort option been clicked*/
-    sortBy: (sortValue: sortValue) => void
+    sortBy: (sortValue: sortValue) => void,
 }
 
 /** Element for sorting movies by title or date*/

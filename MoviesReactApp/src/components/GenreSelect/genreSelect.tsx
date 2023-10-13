@@ -1,3 +1,4 @@
+import { SetURLSearchParams } from 'react-router-dom';
 import config from '../../config.json';
 import './genreSelect.css';
 
@@ -5,7 +6,7 @@ export interface GenreSelectProps {
  /** Initial selected janre*/
  selectedGenre: string,
  /** callback function for janre menu items*/
- onSelect: (selectedGenre: string) => void
+ onSelect: (selectedGenre: string) => void,
 }
 
 /**
