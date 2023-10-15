@@ -7,7 +7,7 @@ export function MovieDetailsGetter() {
     const { movieId } = useParams();
     const [data, setData] = useState({
         id: '',
-        title: '',
+        title: 'Such movie is absent',
         poster_path: '',
         release_date: 0,
         genres: [''],
@@ -18,13 +18,18 @@ export function MovieDetailsGetter() {
 
     useEffect(() => {
         if(process.env.NODE_ENV !== 'test') {
+
             const fetchMovieData = async ()=> {
                 const result = await fetchMovie(movieId);
-                setData(result);
+                if(result) {
+                    setData(result);
+                } else {
+                    setData({...data, title: 'Such movie is absent'});
+                }
             }
             fetchMovieData();
         }
-    });
+    },[]);
 
     return <MovieDetails movieData={data}/>
 }

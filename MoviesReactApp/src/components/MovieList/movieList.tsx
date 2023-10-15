@@ -1,7 +1,7 @@
 import './movieList.css'
 import { MovieTile } from '../MovieTile/movieTile';
 import { MovieInfo } from '../MovieListPage/movieListPage';
-interface movieListProps {
+export interface movieListProps {
     /** Movie list*/
     list: {
         id: string,
@@ -12,12 +12,11 @@ interface movieListProps {
         vote_average: number;
         runtime: string;
         overview: string;
-    }[],
-    movieSelect: () => void;
+    }[]
 }
 
 /** Movie list section*/
-export function MovieList({list, movieSelect}: movieListProps) {
+export function MovieList({ list }: movieListProps) {
 
     return(
         <div className="moviesList">
@@ -30,9 +29,9 @@ export function MovieList({list, movieSelect}: movieListProps) {
                             title: movie.title,
                             release_date: movie.release_date,
                             genres: movie.genres}}
-                            key={movie.poster_path}
-                            movieSelect={movieSelect}/>
-                        )})
+                            key={movie.poster_path}/>
+                    )
+                })
             }
         </div>
     );

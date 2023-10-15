@@ -19,21 +19,27 @@ export function SearchForm() {
     const [searchQuery, setSearchQuery] = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
 
-    const params = {
-        query: searchParams.get('query') ?? '',
-        sortBy: searchParams.get('sortBy') as sortValue,
-        genre: searchParams.get('genre') ?? config.janres[0]
-    }
+    const sortBy = searchParams.get('sortBy') as sortValue;
+    const genre = searchParams.get('genre');
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) =>{
         event.preventDefault();
-        setSearchParams({...params, query: searchQuery});
+        const params = {} as {query: string, sortBy: sortValue, genre: string};
+        if(searchQuery) params.query = searchQuery;
+        if(sortBy) params.sortBy = sortBy;
+        if(genre) params.genre = genre;
+
+        setSearchParams(params);
     }
 
     const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
         if (event.key === 'Enter') {
             event.preventDefault();
-            setSearchParams({...params, query: searchQuery});
+            const params = {} as {query: string, sortBy: sortValue, genre: string};
+            if(searchQuery) params.query = searchQuery;
+            if(sortBy) params.sortBy = sortBy;
+            if(genre) params.genre = genre;
+            setSearchParams(params);
         }
       };
 
@@ -46,6 +52,7 @@ export function SearchForm() {
             <h1>FIND YOUR MOVIE</h1>
             <form className="searchForm" onSubmit={handleSubmit}>
                 <input
+                    defaultValue={searchParams.get('query') || ''}
                     className="searchFormElement"
                     type="text"
                     placeholder="What do you want to watch?"

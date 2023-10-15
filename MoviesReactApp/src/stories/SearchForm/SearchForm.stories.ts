@@ -1,23 +1,16 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { SearchForm } from '../../components/SearchForm/searchForm';
-
-const onSearch = (value: string) => alert(`This is testing call from callback ${value}`);
+import { ReactRenderer, type Meta, type StoryObj } from '@storybook/react';
+import SearchFormWrapper from './SearchFormWrapper';
 
 const meta = {
     title: 'Old components/SearchForm',
-    component: SearchForm,
+    component: SearchFormWrapper,
     parameters: {
       layout: 'centered',
     },
     tags: ['autodocs'],
-  } satisfies Meta<typeof SearchForm>;
+  } satisfies Meta<typeof SearchFormWrapper>;
 
   export default meta;
   type Story = StoryObj<typeof meta>;
 
-  export const Initial: Story = {
-    args: {
-      input: 'Test input',
-      onSearch: onSearch
-    },
-  };
+  export const Initial: Story = {};

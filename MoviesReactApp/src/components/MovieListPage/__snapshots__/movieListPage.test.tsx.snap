@@ -6,28 +6,6 @@ exports[`Testing MovieList page component Testing movie list page rendering  1`]
     class="movieListWrapper"
   >
     <div
-      class="searchContainer"
-    >
-      <h1>
-        FIND YOUR MOVIE
-      </h1>
-      <form
-        class="searchForm"
-      >
-        <input
-          class="searchFormElement"
-          placeholder="What do you want to watch?"
-          type="text"
-        />
-        <button
-          class="searchFormElement"
-          type="submit"
-        >
-          Search
-        </button>
-      </form>
-    </div>
-    <div
       class="genreDashboard"
     >
       <div

@@ -56,6 +56,11 @@ exports[`Testing MovieDetails component Testing movie details rendering 1`] = `
         lorem ipsum
       </div>
     </div>
+    <a
+      href="/"
+    >
+      X
+    </a>
   </div>
 </DocumentFragment>
 `;

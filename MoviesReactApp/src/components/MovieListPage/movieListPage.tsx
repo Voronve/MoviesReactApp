@@ -36,58 +36,46 @@ export interface SearchParams {
 export function MovieListPage() {
     let [searchParams, setSearchParams] = useSearchParams();
 
-    const query = searchParams.get('query');
+    let query = searchParams.get('query');
     let sortBy = searchParams.get('sortBy') as sortValue;
-    const genre = searchParams.get('genre');
+    let genre = searchParams.get('genre') || 'All';
 
     if(sortBy !== sortValue.date && sortBy !== sortValue.title) sortBy = sortValue.default;
 
-    const [sortCriterion, setSortCriterion] = useState(sortBy as sortValue);
-    const [activeGenre, setActiveGenre] = useState(genre ?? 'All');
-    const [searchQuery, setSearchQuery] = useState(query);
     const [movieList, setMovieList] = useState([] as MovieInfo[]);
-    const [selectedMovie, setSelectedMovie] = useState(null as MovieInfo | null);
 
     const handleSortCriterionChange = (value: sortValue) => {
-        setSortCriterion(value);
+        sortBy = value;
+        const params = { sortBy } as {query: string, sortBy: sortValue, genre: string};
+        if(query) params.query = query;
+        if(genre) params.genre = genre;
 
-        const queryParams = {} as {query: string, sortBy: string, genre: string};
-        queryParams['sortBy'] = sortCriterion;
-        if(activeGenre) queryParams['genre'] = activeGenre;
-        if(searchQuery) queryParams['query'] = searchQuery;
-
-        setSearchParams(queryParams);
+        setSearchParams(params);
     };
 
     const handleActiveGenreChange = (value: string) => {
-        setActiveGenre(value);
+        genre = value;
+        const params = { genre } as {query: string, sortBy: sortValue, genre: string};
+        if(query) params.query = query;
+        if(sortBy) params.sortBy = sortBy;
 
-        const queryParams = {} as {query: string, sortBy: string, genre: string};
-        queryParams['genre'] = activeGenre;
-        if(activeGenre) queryParams['sortBy'] = sortCriterion;
-        if(searchQuery) queryParams['query'] = searchQuery;
-
-        setSearchParams(queryParams);
-    };
-
-    const handleSearchQuery = (value: string) => {
-        setSearchQuery(value);
+        setSearchParams(params);
     };
 
     useEffect(() => {
         if(process.env.NODE_ENV !== 'test') {
-            fetchMoviesList(sortCriterion, searchQuery, activeGenre, setMovieList);
+            fetchMoviesList(sortBy || sortValue.default, query || '', genre || '', setMovieList);
         }
-    },[sortCriterion, activeGenre, searchQuery]);
+    },[sortBy, genre, query]);
 
     return (
         <div className="movieListWrapper">
             <Outlet/>
             <div className="genreDashboard">
-                <GenreSelect selectedGenre={activeGenre} onSelect={handleActiveGenreChange}/>
-                <SortControl activeSorting={sortCriterion} sortBy={handleSortCriterionChange}/>
+                <GenreSelect selectedGenre={genre} onSelect={handleActiveGenreChange}/>
+                <SortControl activeSorting={sortBy} sortBy={handleSortCriterionChange}/>
             </div>
-            <MovieList list={movieList} movieSelect={setSelectedMovie}/>
+            <MovieList list={movieList} />
         </div>
     );
 }

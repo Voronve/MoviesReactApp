@@ -1,6 +1,7 @@
 import './movieTile.css';
 import { Link, useSearchParams } from 'react-router-dom';
-interface movieTileProps {
+import formQueryParamString from '../../helpers/formQueryParamsString';
+export interface movieTileProps {
     /** Movie tile data object*/
     movieData: {
         /**Movie id */
@@ -13,21 +14,18 @@ interface movieTileProps {
         release_date: number,
         /**Movie janres list */
         genres: string[]
-    },
-    movieSelect: () => void;
+    }
 }
 
 /** Single movie tile*/
-export function MovieTile({ movieData, movieSelect }: movieTileProps ) {
+export function MovieTile({ movieData }: movieTileProps ) {
     const {id, poster_path, title, release_date, genres} = movieData;
-    let [searchParams, setSearchParams] = useSearchParams();
-    const query = searchParams.get('query');
-    const sortBy = searchParams.get('sortBy');
-    const genre = searchParams.get('genre');
+    const [searchParams] = useSearchParams();
+    const resultString = formQueryParamString(searchParams);
 
     return (
-        <Link to={`/${id}`} state={{ query, sortBy, genre }} >
-            <div className="movieTile" onClick={movieSelect}>
+        <Link to={`/${id}${resultString}`}>
+            <div className="movieTile">
                 <img src={poster_path} alt={title} width="322px"/>
                 <div className="movieInfo">
                     <div className="flex-container">

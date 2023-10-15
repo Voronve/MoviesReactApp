@@ -1,3 +1,4 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { MovieDetails } from './movieDetails';
 import { render } from '@testing-library/react';
 
@@ -15,8 +16,12 @@ describe("Testing MovieDetails component", () => {
             runtime: 'infinity',
             overview: 'lorem ipsum'
         }
-
-        const { asFragment } = render(<MovieDetails movieData = {movieInfo}/>);
+        const { asFragment } = render((
+        <BrowserRouter>
+            <Routes>
+                <Route path='/' element={<MovieDetails movieData = {movieInfo}/>}/>
+            </Routes>
+        </BrowserRouter>));
 
         expect(asFragment()).toMatchSnapshot();
     });

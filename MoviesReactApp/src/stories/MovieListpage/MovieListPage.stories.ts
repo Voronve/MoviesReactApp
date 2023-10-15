@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { MovieListPage } from '../../components/MovieListPage/movieListPage';
+import MovieListPageWrapper from './MovieListPageWrapper';
 
 const meta = {
     title: 'New components/MovieListPage',
-    component: MovieListPage,
+    component: MovieListPageWrapper,
     parameters: {
       layout: 'centered',
     },
     tags: ['autodocs'],
-  } satisfies Meta<typeof MovieListPage>;
+  } satisfies Meta<typeof MovieListPageWrapper>;
 
   export default meta;
   type Story = StoryObj<typeof meta>;

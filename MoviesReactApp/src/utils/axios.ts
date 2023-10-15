@@ -8,7 +8,7 @@ const axiosInstance = axios.create({
 
 export const fetchMoviesList = async (
     sortCriterion: sortValue,
-    searchQuery: string | null,
+    searchQuery: string,
     activeGenre: string,
     setMovieList: React.Dispatch<React.SetStateAction<MovieInfo[]>>) => {
 
@@ -19,7 +19,7 @@ export const fetchMoviesList = async (
             sortOrder: sortCriterion === sortValue.date ? 'desc' : 'asc',
             sortBy: sortCriterion !== sortValue.default ? sortCriterion : '',
             searchBy: 'title',
-            search: searchQuery ?? '',
+            search: searchQuery,
             filter: activeGenre.toLowerCase() === 'all' ? '' : activeGenre
         }
     });
@@ -27,5 +27,14 @@ export const fetchMoviesList = async (
 }
 
 export const fetchMovie = async (movieId: string = '') => {
-    return (await axiosInstance.get(`movies/${movieId}`)).data as MovieInfo;
+    try {
+        const result = await axiosInstance.get(`movies/${movieId}`);
+        if(result?.data) {
+            return result.data as MovieInfo
+        } else {
+            return null;
+        }
+    } catch(e) {
+        return null;
+    }
 }

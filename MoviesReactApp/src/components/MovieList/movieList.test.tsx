@@ -1,8 +1,8 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { MovieList } from './movieList';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 describe("Testing MovieList component", () => {
-    const onClick = jest.fn();
     const movieListMock = [{
         "id": "123",
         "poster_path": "Comedy/Barbie.jpg",
@@ -24,19 +24,14 @@ describe("Testing MovieList component", () => {
         "overview": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
     }];
 
-    // test("Testing movie list rendering", () => {
+    test("Testing movie list rendering", () => {
+        const { asFragment } = render(
+            (<BrowserRouter>
+                <Routes>
+                    <Route path='/' element={<MovieList list={movieListMock}/>}/>
+                </Routes>
+            </BrowserRouter>));
 
-    //     const { asFragment } = render(<MovieList list={movieListMock}/>);
-
-    //     expect(asFragment()).toMatchSnapshot();
-    // });
-
-    // test("Testing that callback function is working as expected", () => {
-    //     render(<MovieList list={movieListMock}/>);
-    //     const chosenMovie = movieListMock[1];
-
-    //     fireEvent.click(screen.getByText(chosenMovie.title));
-
-    //     expect(onClick).toBeCalledWith(chosenMovie);
-    // });
+        expect(asFragment()).toMatchSnapshot();
+    });
 });

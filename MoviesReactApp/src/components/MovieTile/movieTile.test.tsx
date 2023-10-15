@@ -1,5 +1,6 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { MovieTile } from './movieTile';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 describe("Testing MovieTile component", () => {
     const movieDataMock = {
@@ -10,18 +11,15 @@ describe("Testing MovieTile component", () => {
         genres: ["COMEDY", "HORROR"],
     }
 
-    // test("Testing movie tile rendering", () => {
+    test("Testing movie tile rendering", () => {
 
-    //     const { asFragment } = render(<MovieTile movieData={movieDataMock} />);
+        const { asFragment } = render(
+        (<BrowserRouter>
+            <Routes>
+                <Route path='/' element={<MovieTile movieData={movieDataMock} />}/>
+            </Routes>
+        </BrowserRouter>));
 
-    //     expect(asFragment()).toMatchSnapshot();
-    // });
-
-    // test("Testing that callback function is working as expected", () => {
-    //     render(<MovieTile movieData={movieDataMock} />)
-
-    //     fireEvent.click(screen.getByText(movieDataMock.title));
-
-    //     expect(onClick).toBeCalledWith(movieDataMock.title);
-    // });
+        expect(asFragment()).toMatchSnapshot();
+    });
 });
