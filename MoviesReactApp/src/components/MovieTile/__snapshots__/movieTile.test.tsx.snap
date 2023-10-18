@@ -2,37 +2,41 @@
 
 exports[`Testing MovieTile component Testing movie tile rendering 1`] = `
 <DocumentFragment>
-  <div
-    class="movieTile"
+  <a
+    href="/123"
   >
-    <img
-      alt="Barbie"
-      src="Comedy/Barbie.jpg"
-      width="322px"
-    />
     <div
-      class="movieInfo"
+      class="movieTile"
     >
+      <img
+        alt="Barbie"
+        src="Comedy/Barbie.jpg"
+        width="322px"
+      />
       <div
-        class="flex-container"
+        class="movieInfo"
       >
         <div
-          class="name"
+          class="flex-container"
         >
-          Barbie
+          <div
+            class="name"
+          >
+            Barbie
+          </div>
+          <div
+            class="year"
+          >
+            2023
+          </div>
         </div>
         <div
-          class="year"
+          class="ganres"
         >
-          2023
+          COMEDY,HORROR
         </div>
-      </div>
-      <div
-        class="ganres"
-      >
-        COMEDY,HORROR
       </div>
     </div>
-  </div>
+  </a>
 </DocumentFragment>
 `;

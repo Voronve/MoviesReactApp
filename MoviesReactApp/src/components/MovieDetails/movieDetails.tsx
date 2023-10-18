@@ -1,19 +1,23 @@
 import './movieDetails.css';
 import { MovieInfo } from '../MovieListPage/movieListPage';
+import { Link, useSearchParams } from 'react-router-dom';
+import formQueryParamString from '../../helpers/formQueryParamsString';
 
-interface MovieDetailsProps {
+export interface MovieDetailsProps {
     /** All movie data*/
     movieData: MovieInfo | null;
 }
 
 /** Movie details section*/
 export function MovieDetails({ movieData }: MovieDetailsProps ) {
+    const [searchParams] = useSearchParams();
     if(!movieData || !Object.keys(movieData).length) {
 
         return null;
     }
 
     const {poster_path, title, release_date, vote_average, genres, runtime, overview} = movieData;
+    const resultString = formQueryParamString(searchParams);
 
     return (
         <div className="movieDetailsWrapper">
@@ -32,6 +36,7 @@ export function MovieDetails({ movieData }: MovieDetailsProps ) {
                 </div>
                 <div className="overview">{overview}</div>
             </div>
+            <Link to={`/${resultString}`}>X</Link>
         </div>
     );
 }

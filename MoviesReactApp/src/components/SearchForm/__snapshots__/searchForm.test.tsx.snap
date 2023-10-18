@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing SearchForm component Testing SearchForm rendering  1`] = `
+<DocumentFragment>
+  <div
+    class="searchContainer"
+  >
+    <h1>
+      FIND YOUR MOVIE
+    </h1>
+    <form
+      class="searchForm"
+    >
+      <input
+        class="searchFormElement"
+        placeholder="What do you want to watch?"
+        type="text"
+        value=""
+      />
+      <button
+        class="searchFormElement"
+        type="submit"
+      >
+        Search
+      </button>
+    </form>
+  </div>
+</DocumentFragment>
+`;

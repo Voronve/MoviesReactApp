@@ -1,9 +1,10 @@
 import './movieList.css'
 import { MovieTile } from '../MovieTile/movieTile';
 import { MovieInfo } from '../MovieListPage/movieListPage';
-interface movieListProps {
+export interface movieListProps {
     /** Movie list*/
     list: {
+        id: string,
         poster_path: string;
         title: string;
         release_date: number;
@@ -11,13 +12,11 @@ interface movieListProps {
         vote_average: number;
         runtime: string;
         overview: string;
-    }[],
-    /** callback function for movie tile been clicked*/
-    movieClick: (movie: MovieInfo) => void;
+    }[]
 }
 
 /** Movie list section*/
-export function MovieList({list, movieClick}: movieListProps) {
+export function MovieList({ list }: movieListProps) {
 
     return(
         <div className="moviesList">
@@ -25,13 +24,14 @@ export function MovieList({list, movieClick}: movieListProps) {
                 list.map( movie => {
                     return(
                         <MovieTile movieData={{
+                            id: movie.id,
                             poster_path: movie.poster_path,
                             title: movie.title,
                             release_date: movie.release_date,
-                            genres: movie.genres,
-                            onClick: () => movieClick(movie)}}
+                            genres: movie.genres}}
                             key={movie.poster_path}/>
-                        )})
+                    )
+                })
             }
         </div>
     );

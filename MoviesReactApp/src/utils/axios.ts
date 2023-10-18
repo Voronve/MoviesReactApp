@@ -25,3 +25,16 @@ export const fetchMoviesList = async (
     });
     setMovieList(result.data.data as MovieInfo[]);
 }
+
+export const fetchMovie = async (movieId: string = '') => {
+    try {
+        const result = await axiosInstance.get(`movies/${movieId}`);
+        if(result?.data) {
+            return result.data as MovieInfo
+        } else {
+            return null;
+        }
+    } catch(e) {
+        return null;
+    }
+}

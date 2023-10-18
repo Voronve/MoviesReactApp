@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { MovieTile } from '../../components/MovieTile/movieTile';
+import MovieTileWrapper from './MovieTileWrapper';
 
 const meta = {
     title: 'New components/MovieTile',
-    component: MovieTile,
+    component: MovieTileWrapper,
     parameters: {
       layout: 'centered',
     },
     tags: ['autodocs'],
-  } satisfies Meta<typeof MovieTile>;
+  } satisfies Meta<typeof MovieTileWrapper>;
 
   export default meta;
   type Story = StoryObj<typeof meta>;
@@ -16,11 +16,11 @@ const meta = {
   export const Initial: Story = {
     args: {
         movieData: {
+          id: "123",
           poster_path: "/media/Crime/ManOnFire.jpg",
-            title: "ManOnFire",
-            release_date: 2004,
-            genres: ["Fantasy"],
-            onClick: (value: string) => alert(`This is testing call from callback ${value}`)
+          title: "ManOnFire",
+          release_date: 2004,
+          genres: ["Fantasy"],
         }
     }
   };

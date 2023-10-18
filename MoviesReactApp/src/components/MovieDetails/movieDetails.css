@@ -52,3 +52,12 @@
 .movieDataWrapper .runtime {
     margin-left: 50px;;
 }
+
+.movieDetailsWrapper a {
+    color: red;
+    font-size: 25px;
+    align-self: start;
+    position: relative;
+    top: 0;
+    right: 0;
+}

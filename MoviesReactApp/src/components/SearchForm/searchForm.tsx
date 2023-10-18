@@ -1,6 +1,8 @@
 import React, { FormEvent, KeyboardEvent, ChangeEvent, useState } from 'react';
 import './searchForm.css';
-
+import { useSearchParams } from 'react-router-dom';
+import { sortValue } from '../SortControl/sortControl';
+import config from '../../config.json';
 export interface SearchFormProps {
 /**
  * Initial search value
@@ -9,22 +11,35 @@ export interface SearchFormProps {
 /**
  * Callbeck function to be called on search
  */
- onSearch: (searchText: string) => void
+ onSearch: (searchText: string) => void,
 }
 
 /** Form for searching movies */
-export function SearchForm({ input, onSearch }: SearchFormProps) {
-    const [searchQuery, setSearchQuery] = useState(input);
+export function SearchForm() {
+    const [searchQuery, setSearchQuery] = useState('');
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const sortBy = searchParams.get('sortBy') as sortValue;
+    const genre = searchParams.get('genre');
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) =>{
         event.preventDefault();
-        onSearch(searchQuery);
+        const params = {} as {query: string, sortBy: sortValue, genre: string};
+        if(searchQuery) params.query = searchQuery;
+        if(sortBy) params.sortBy = sortBy;
+        if(genre) params.genre = genre;
+
+        setSearchParams(params);
     }
 
     const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
         if (event.key === 'Enter') {
             event.preventDefault();
-            onSearch(searchQuery);
+            const params = {} as {query: string, sortBy: sortValue, genre: string};
+            if(searchQuery) params.query = searchQuery;
+            if(sortBy) params.sortBy = sortBy;
+            if(genre) params.genre = genre;
+            setSearchParams(params);
         }
       };
 
@@ -37,6 +52,7 @@ export function SearchForm({ input, onSearch }: SearchFormProps) {
             <h1>FIND YOUR MOVIE</h1>
             <form className="searchForm" onSubmit={handleSubmit}>
                 <input
+                    defaultValue={searchParams.get('query') || ''}
                     className="searchFormElement"
                     type="text"
                     placeholder="What do you want to watch?"
