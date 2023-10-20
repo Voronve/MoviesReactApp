@@ -13,9 +13,9 @@
     text-align: center;
   }
 
-  .dialogWindow .crossButton {
+  .dialogWindow .crossButton, .dialogWindow a{
     cursor: pointer;
-    color: white;
+    color: red;
     border: none;
     outline: none;
     appearance: none;

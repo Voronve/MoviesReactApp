@@ -1,8 +1,8 @@
 import React, { FormEvent, KeyboardEvent, ChangeEvent, useState } from 'react';
 import './searchForm.css';
-import { useSearchParams } from 'react-router-dom';
+import { Link, Outlet, useSearchParams } from 'react-router-dom';
 import { sortValue } from '../SortControl/sortControl';
-import config from '../../config.json';
+import formQueryParamString from '../../helpers/formQueryParamsString';
 export interface SearchFormProps {
 /**
  * Initial search value
@@ -18,6 +18,7 @@ export interface SearchFormProps {
 export function SearchForm() {
     const [searchQuery, setSearchQuery] = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
+    const resultString = formQueryParamString(searchParams);
 
     const sortBy = searchParams.get('sortBy') as sortValue;
     const genre = searchParams.get('genre');
@@ -33,6 +34,7 @@ export function SearchForm() {
     }
 
     const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+
         if (event.key === 'Enter') {
             event.preventDefault();
             const params = {} as {query: string, sortBy: sortValue, genre: string};
@@ -60,6 +62,8 @@ export function SearchForm() {
                     onKeyDown={handleKeyDown}/>
                 <button className="searchFormElement" type="submit">Search</button>
             </form>
+            <Link to={`/new${resultString}`}><div className='addMovie'>+ add movie</div></Link>
+            <Outlet/>
         </div>
     );
 }

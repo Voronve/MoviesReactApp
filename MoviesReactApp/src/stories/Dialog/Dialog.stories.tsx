@@ -30,16 +30,14 @@ const meta = {
   export const AddMovieFormStory: Story = {
     args: {
         title: <h3>Add movie</h3>,
-        children: <MovieForm onSubmit={onSubmit}></MovieForm>,
-        closeFunc: onClick
+        children: <MovieForm></MovieForm>,
     },
   };
 
   export const EditMovieFormStory: Story = {
     args: {
         title: <h3>Edit movie</h3>,
-        children: <MovieForm onSubmit={onSubmit} movieInfo={mockMovieData}></MovieForm>,
-        closeFunc: onClick
+        children: <MovieForm movieInfo={mockMovieData}></MovieForm>,
     },
   };
 
@@ -53,6 +51,5 @@ const meta = {
               <button className="submitButton" type='submit' onSubmit={onSubmit}>CONFIRM</button>
           </div>
       </form>),
-        closeFunc: onClick
     },
   };

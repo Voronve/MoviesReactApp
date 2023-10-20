@@ -29,7 +29,7 @@ export function MovieDetailsGetter() {
             }
             fetchMovieData();
         }
-    },[ movieId ]);
+    },[]);
 
     return (
         <>

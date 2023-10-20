@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { sortValue } from '../components/SortControl/sortControl';
 import { MovieInfo } from '../components/MovieListPage/movieListPage';
+import { MovieFormData } from '../components/MovieForm/movieForm';
 
 const axiosInstance = axios.create({
     baseURL: 'http://localhost:4000/',
@@ -35,6 +36,32 @@ export const fetchMovie = async (movieId: string = '') => {
             return null;
         }
     } catch(e) {
+        return null;
+    }
+}
+
+export const addMovie = async (movieData: MovieFormData) => {
+    const genres = movieData.genres.split(', ');
+    const release_date = new Date(movieData.release_date);
+    try {
+        const result = await axiosInstance.post(`movies`, {
+            title: movieData.title,
+            vote_average: Number(movieData.vote_average),
+            release_date,
+            poster_path: movieData.poster_path,
+            overview: movieData.overview,
+            runtime: Number(movieData.runtime),
+            genres
+
+        });
+        if(result?.data) {
+            return result.data as MovieInfo
+        } else {
+            console.log(`Result: ${JSON.stringify(result, null, 2)}`);
+            return null;
+        }
+    } catch(e) {
+        console.log(`Result: ${JSON.stringify(e, null, 2)}`);
         return null;
     }
 }

@@ -8,14 +8,14 @@ describe("Testing Dialog component", () => {
 
     test("Testing dialog window rendering ", () => {
 
-        const { asFragment } = render(<Dialog title={testTitle} closeFunc={onSelect}>{testChild}</Dialog>);
+        const { asFragment } = render(<Dialog title={testTitle}>{testChild}</Dialog>);
 
         expect(asFragment()).toMatchSnapshot();
     });
 
     test("Testing that dialog child props exists", () => {
 
-        render(<Dialog title={testTitle} closeFunc={onSelect}>{testChild}</Dialog>);
+        render(<Dialog title={testTitle}>{testChild}</Dialog>);
 
         const title = screen.getByText("Test title");
         const child = screen.getByText("Test child");
@@ -26,7 +26,7 @@ describe("Testing Dialog component", () => {
 
     test("Testing that closeFunc function in dialog is working as expected", () => {
 
-        render(<Dialog title={testTitle} closeFunc={onSelect}>{testChild}</Dialog>);
+        render(<Dialog title={testTitle}>{testChild}</Dialog>);
 
         fireEvent.click(screen.getByRole('button'));
 

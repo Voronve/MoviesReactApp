@@ -2,6 +2,7 @@
   /* Style for the form */
 
   .searchContainer {
+    position: relative;
     text-align: left;
     padding: 100px 50px;
     background-color: black;
@@ -14,6 +15,28 @@
     font: 40px 'Montserrat', sans-serif;
     color: white;
     margin-bottom: 50px;
+  }
+
+  .searchContainer .addMovie {
+    position: absolute;
+    color: red;
+    font-size: 20px;
+    top: 50px;
+    right: 20px;
+    padding: 10px 15px;
+    border-radius: 4px;
+  }
+
+  .searchContainer .addMovie::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 4px;
+    background-color: white;
+    opacity: 0.3;
+    content: "";
   }
 
   .searchForm {

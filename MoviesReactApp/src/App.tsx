@@ -7,7 +7,8 @@ import onSelect from './helpers/onSelect';
 import { BrowserRouter, Routes, Route, useSearchParams } from 'react-router-dom';
 import { MovieDetailsGetter } from './components/MovieDetailsGetter/movieDetailsGetter';
 import { SearchForm } from './components/SearchForm/searchForm';
-
+import { Dialog } from './components/Dialog/dialog';
+import { MovieForm } from './components/MovieForm/movieForm'
 function App() {
   return (
     <div className="App">
@@ -17,8 +18,20 @@ function App() {
       <BrowserRouter>
         <Routes>
             <Route path='/' element={<MovieListPage/>}>
-              <Route index element={<SearchForm/>}/>
-              <Route path='/:movieId' element={<MovieDetailsGetter/>}/>
+              <Route path='/' element={<SearchForm/>}>
+                  <Route path='/new' element={
+                    <Dialog title={<h3>Add movie</h3>}>
+                      <MovieForm></MovieForm>
+                    </Dialog>}>
+                  </Route>
+              </Route>
+              <Route path='/:movieId' element={<MovieDetailsGetter/>}>
+                <Route path='/:movieId/edit' element={
+                    <Dialog title={<h3>Edit movie</h3>}>
+                      <MovieForm></MovieForm>
+                    </Dialog>}>
+                </Route>
+              </Route>
             </Route>
         </Routes>
       </BrowserRouter>
