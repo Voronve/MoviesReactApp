@@ -1,11 +1,11 @@
+import { MovieForm } from '../MovieForm/movieForm';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { SearchForm } from "../../components/SearchForm/searchForm";
 
-export default function SearchFormWrapper() {
+export default function MovieFormWrapper() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path='/*' element={<SearchForm/>}/>
+                <Route path='/*' element={<MovieForm/>}/>
             </Routes>
         </BrowserRouter>
     );

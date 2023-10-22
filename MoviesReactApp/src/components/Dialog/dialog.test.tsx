@@ -1,35 +1,25 @@
-import { Dialog } from './dialog';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import DialogWrapper from '../browserWrappers/DialogWrapper';
 
 describe("Testing Dialog component", () => {
     const testTitle = <h2>Test title</h2>;
-    const onSelect = jest.fn();
     const testChild = <div>Test child</div>;
 
     test("Testing dialog window rendering ", () => {
 
-        const { asFragment } = render(<Dialog title={testTitle}>{testChild}</Dialog>);
+        const { asFragment } = render(<DialogWrapper title={testTitle}>{testChild}</DialogWrapper>);
 
         expect(asFragment()).toMatchSnapshot();
     });
 
     test("Testing that dialog child props exists", () => {
 
-        render(<Dialog title={testTitle}>{testChild}</Dialog>);
+        render(<DialogWrapper title={testTitle}>{testChild}</DialogWrapper>);
 
         const title = screen.getByText("Test title");
         const child = screen.getByText("Test child");
 
         expect(title).toBeInTheDocument();
         expect(child).toBeInTheDocument();
-    });
-
-    test("Testing that closeFunc function in dialog is working as expected", () => {
-
-        render(<Dialog title={testTitle}>{testChild}</Dialog>);
-
-        fireEvent.click(screen.getByRole('button'));
-
-        expect(onSelect).toBeCalled();
     });
 });

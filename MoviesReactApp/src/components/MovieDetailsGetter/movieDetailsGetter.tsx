@@ -9,9 +9,9 @@ export function MovieDetailsGetter() {
         id: '',
         title: 'Such movie is absent',
         poster_path: '',
-        release_date: 0,
+        release_date: '',
         genres: [''],
-        vote_average: 0,
+        vote_average: '',
         runtime: '',
         overview: ''
     });
@@ -29,7 +29,7 @@ export function MovieDetailsGetter() {
             }
             fetchMovieData();
         }
-    },[ movieId ]);
+    });
 
     return (
         <>

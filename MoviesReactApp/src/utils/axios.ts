@@ -29,7 +29,33 @@ export const fetchMoviesList = async (
 
 export const fetchMovie = async (movieId: string = '') => {
     try {
-        const result = await axiosInstance.get(`movies/${movieId}`);
+        const movieInfo = (await axiosInstance.get(`movies/${movieId}`)).data as MovieInfo;
+
+        if(!movieInfo) return null;
+
+        // const releaseDate = new Date(movieInfo.release_date);
+        // movieInfo.release_date = `${releaseDate.getFullYear()}-${releaseDate.g() - 1}-${releaseDate.getDate() - 1}`;
+
+        return movieInfo;
+    } catch(e) {
+
+        return null;
+    }
+}
+
+export const addMovie = async (movieData: MovieFormData) => {
+    const genres = movieData.genres.split(', ');
+    try {
+        const result = await axiosInstance.post(`movies`, {
+            title: movieData.title,
+            vote_average: Number(movieData.vote_average),
+            release_date: movieData.release_date,
+            poster_path: movieData.poster_path,
+            overview: movieData.overview,
+            runtime: Number(movieData.runtime),
+            genres
+
+        });
         if(result?.data) {
             return result.data as MovieInfo
         } else {
@@ -40,28 +66,39 @@ export const fetchMovie = async (movieId: string = '') => {
     }
 }
 
-export const addMovie = async (movieData: MovieFormData) => {
+export const editMovie = async (movieData: MovieFormData) => {
     const genres = movieData.genres.split(', ');
-    const release_date = new Date(movieData.release_date);
     try {
-        const result = await axiosInstance.post(`movies`, {
+        const result = await axiosInstance.put(`movies`, {
+            id: Number(movieData.id),
             title: movieData.title,
             vote_average: Number(movieData.vote_average),
-            release_date,
+            release_date : movieData.release_date,
             poster_path: movieData.poster_path,
             overview: movieData.overview,
             runtime: Number(movieData.runtime),
             genres
-
         });
+
         if(result?.data) {
             return result.data as MovieInfo
         } else {
-            console.log(`Result: ${JSON.stringify(result, null, 2)}`);
             return null;
         }
     } catch(e) {
-        console.log(`Result: ${JSON.stringify(e, null, 2)}`);
         return null;
+    }
+}
+
+export const deleteMovie = async (movieId: string) => {
+    try {
+        const status = (await axiosInstance.delete(`movies/${movieId}`)).status;
+
+        if(status !== 204) return false;
+
+        return true;
+    } catch(e) {
+
+        return false;
     }
 }

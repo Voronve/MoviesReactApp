@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import MovieTileWrapper from './MovieTileWrapper';
+import MovieTileWrapper from '../../components/browserWrappers/MovieTileWrapper';
 
 const meta = {
     title: 'New components/MovieTile',
@@ -19,7 +19,7 @@ const meta = {
           id: "123",
           poster_path: "/media/Crime/ManOnFire.jpg",
           title: "ManOnFire",
-          release_date: 2004,
+          release_date: '2004-05-18',
           genres: ["Fantasy"],
         }
     }

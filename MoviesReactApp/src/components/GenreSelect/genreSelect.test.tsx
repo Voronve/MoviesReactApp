@@ -1,6 +1,7 @@
 import { GenreSelect } from './genreSelect';
 import { fireEvent, render, screen } from '@testing-library/react';
 import config from '../../config.json';
+
 describe("Testing GanreSelect component", () => {
     const genreNameList = config.janres;
     const onSelect = jest.fn();

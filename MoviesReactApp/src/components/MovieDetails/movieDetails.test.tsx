@@ -10,9 +10,9 @@ describe("Testing MovieDetails component", () => {
             id: "123",
             poster_path: 'testImage',
             title:'testImage',
-            release_date: 1987,
+            release_date: '1987-05-18',
             genres: ["DRAMA", "BIOPIC"],
-            vote_average: 9.9,
+            vote_average: "9.9",
             runtime: 'infinity',
             overview: 'lorem ipsum'
         }

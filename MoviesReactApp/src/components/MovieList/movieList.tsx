@@ -1,15 +1,14 @@
 import './movieList.css'
 import { MovieTile } from '../MovieTile/movieTile';
-import { MovieInfo } from '../MovieListPage/movieListPage';
 export interface movieListProps {
     /** Movie list*/
     list: {
         id: string,
         poster_path: string;
         title: string;
-        release_date: number;
+        release_date: string;
         genres: string[];
-        vote_average: number;
+        vote_average: string;
         runtime: string;
         overview: string;
     }[]

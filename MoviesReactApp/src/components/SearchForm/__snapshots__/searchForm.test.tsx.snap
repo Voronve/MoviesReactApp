@@ -24,6 +24,15 @@ exports[`Testing SearchForm component Testing SearchForm rendering  1`] = `
         Search
       </button>
     </form>
+    <a
+      href="/new"
+    >
+      <div
+        class="addMovie"
+      >
+        + add movie
+      </div>
+    </a>
   </div>
 </DocumentFragment>
 `;

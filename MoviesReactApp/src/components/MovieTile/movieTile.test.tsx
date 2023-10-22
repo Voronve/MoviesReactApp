@@ -7,7 +7,7 @@ describe("Testing MovieTile component", () => {
         id: '123',
         poster_path: "Comedy/Barbie.jpg",
         title: "Barbie",
-        release_date: 2023,
+        release_date: '2023-05-18',
         genres: ["COMEDY", "HORROR"],
     }
 

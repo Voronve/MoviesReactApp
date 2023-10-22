@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { SearchForm } from './searchForm';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 describe("Testing SearchForm component", () => {
 

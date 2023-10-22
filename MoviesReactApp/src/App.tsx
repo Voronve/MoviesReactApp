@@ -8,7 +8,8 @@ import { BrowserRouter, Routes, Route, useSearchParams } from 'react-router-dom'
 import { MovieDetailsGetter } from './components/MovieDetailsGetter/movieDetailsGetter';
 import { SearchForm } from './components/SearchForm/searchForm';
 import { Dialog } from './components/Dialog/dialog';
-import { MovieForm } from './components/MovieForm/movieForm'
+import { MovieForm } from './components/MovieForm/movieForm';
+import { DeleteMoviePopup } from './components/DeleteMoviePopup/deleteMoviePopup';
 function App() {
   return (
     <div className="App">
@@ -29,6 +30,11 @@ function App() {
                 <Route path='/:movieId/edit' element={
                     <Dialog title={<h3>Edit movie</h3>}>
                       <MovieForm></MovieForm>
+                    </Dialog>}>
+                </Route>
+                <Route path='/:movieId/delete' element={
+                    <Dialog title={<h3>Delete movie</h3>}>
+                      <DeleteMoviePopup></DeleteMoviePopup>
                     </Dialog>}>
                 </Route>
               </Route>

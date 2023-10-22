@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import formQueryParamString from '../../helpers/formQueryParamsString';
-import { fetchMovie, addMovie } from '../../utils/axios';
+import { fetchMovie, addMovie, editMovie } from '../../utils/axios';
 import { MovieInfo } from '../MovieListPage/movieListPage';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useForm, SubmitHandler } from 'react-hook-form';
@@ -23,7 +23,7 @@ export interface MovieFormData {
     /**Movie janres list */
     genres: string;
     /**Movie vote_average */
-    vote_average: number;
+    vote_average: string;
     /**Movie length */
     runtime: string;
     /**Movie overview */
@@ -31,7 +31,7 @@ export interface MovieFormData {
 }
 
 /** Form for searching movies */
-export function MovieForm({ movieInfo }: MovieFormProps) {
+export function MovieForm() {
     const navigate = useNavigate();
     const { movieId } = useParams();
     const [searchParams] = useSearchParams();
@@ -40,51 +40,68 @@ export function MovieForm({ movieInfo }: MovieFormProps) {
         id: '',
         title: '',
         poster_path: '',
-        release_date: 0,
+        release_date: '',
         genres: [''],
-        vote_average: 0,
+        vote_average: '',
         runtime: '',
         overview: ''
     });
 
-    const { register, handleSubmit } = useForm<MovieFormData>()
+    const [formIsReady, setFormRediness] = useState(false);
+
+    const { register, handleSubmit, reset } = useForm<MovieFormData>();
 
     useEffect(() => {
         if(process.env.NODE_ENV !== 'test') {
-
-            const fetchMovieData = async ()=> {
-                const result = await fetchMovie(movieId);
+            if(movieId) {
+                const fetchMovieData = async () => {
+                    const movieInfo = await fetchMovie(movieId);
+                    if(movieInfo) {
+                        setData({...movieInfo});
+                        setFormRediness(true);
+                    } else {
+                        setData({...movieData });
+                    }
+                }
+                fetchMovieData();
+            } else {
+                setFormRediness(true);
+            }
+        }
+    }, []);
+    searchParams.get('shouldUpdateList');
+    const onSubmit: SubmitHandler<MovieFormData> = data => {
+        const delimiter = resultString.length ? '&' : '?';
+        if(movieId) {
+            data.id = movieId;
+            const editMoviefromForm = async ()=> {
+                const result = await editMovie(data);
                 if(result) {
-                    setData(result);
+                    navigate(`/${result.id}/${resultString}${delimiter}shouldUpdateList=true`);
                 } else {
-                    setData({...movieData });
+                    alert('Something went wrong!');
                 }
             }
-            fetchMovieData();
-        }
-    },[]);
-
-    const onSubmit: SubmitHandler<MovieFormData> = data => {
-        const addMoviefromForm = async ()=> {
-            console.log(data);
-            const result = await addMovie(data);
-            if(result) {
-                navigate(`/${result.id}/${resultString}`);
-            } else {
-                alert('Something went wrong!');
+            editMoviefromForm();
+        } else {
+            const addMoviefromForm = async ()=> {
+                const result = await addMovie(data);
+                if(result) {
+                    navigate(`/${result.id}/${resultString}${delimiter}shouldUpdateList=true`);
+                } else {
+                    alert('Something went wrong!');
+                }
             }
+            addMoviefromForm();
         }
-        addMoviefromForm();
-
     }
 
-    const onReset = (event: React.MouseEvent) => {
-        event.preventDefault();
-        setData({...movieData });
+    const onReset = () => {
+        reset();
     }
 
-    return (
-         <form className='movieForm'  onSubmit={handleSubmit(onSubmit)}>
+    return ( formIsReady ?
+         <form className='movieForm' onSubmit={handleSubmit(onSubmit)}>
             <div className="column-2-3">
                 <label htmlFor="title">Title:</label>
                 <input type="text" id="title"
@@ -97,20 +114,18 @@ export function MovieForm({ movieInfo }: MovieFormProps) {
                     {...register("poster_path", {required: true})}/>
 
                 <label>Genre:</label>
-                <input type="text" id="janres"
+                <input type="text" id="genres"
                     defaultValue={movieData.genres ? movieData.genres.join(', ') : ''}
                     {...register("genres", {required: true})}/>
             </div>
-
             <div className="column-1-3">
                 <label htmlFor="release-date">Release Date:</label>
                 <input type="date" id="release-date"
-                    defaultValue={movieData.release_date ?? ''}
+                    defaultValue={movieData.release_date}
                     {...register("release_date", {required: true})}/>
-
                 <label htmlFor="vote_average">Rating:</label>
                 <input type="text" id="vote_average"
-                    defaultValue={movieData.vote_average ?? ''}
+                    defaultValue={movieData.vote_average}
                     {...register("vote_average", {required: true})}/>
 
                 <label htmlFor="runtime">Runtime:</label>
@@ -126,9 +141,9 @@ export function MovieForm({ movieInfo }: MovieFormProps) {
                     {...register("overview", {required: true})}></textarea>
             </div>
             <div className="buttonBlock">
-                <button className="resetButton" onClick={onReset} >RESET</button>
-                <button className="submitButton" type='submit'>SUBMIT</button>
+                <button className="resetButton" type="button" onClick={onReset}>RESET</button>
+                <button className="submitButton" type="submit">SUBMIT</button>
             </div>
-        </form>
+        </form> : null
     );
 }

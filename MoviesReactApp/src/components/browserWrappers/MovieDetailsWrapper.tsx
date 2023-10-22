@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { MovieDetails, MovieDetailsProps } from '../../components/MovieDetails/movieDetails';
+import { MovieDetails, MovieDetailsProps } from '../MovieDetails/movieDetails';
 
 export default function SearchFormWrapper({ movieData }: MovieDetailsProps) {
     return (
