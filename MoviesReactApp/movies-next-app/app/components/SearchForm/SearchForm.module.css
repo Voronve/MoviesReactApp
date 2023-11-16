@@ -1,0 +1,76 @@
+
+  /* Style for the form */
+
+  .searchContainer {
+    position: relative;
+    text-align: left;
+    padding: 100px 50px;
+    background-color: black;
+    background-blend-mode: multiply;
+    background: rgba(0, 0, 0, 0.5);
+    background-image: url('./images/Netflix.jpg');
+  }
+
+  .searchContainer h1 {
+    font: 40px 'Montserrat', sans-serif;
+    color: white;
+    margin-bottom: 50px;
+  }
+
+  .searchContainer .addMovie {
+    position: absolute;
+    color: red;
+    font-size: 20px;
+    top: 50px;
+    right: 20px;
+    padding: 10px 15px;
+    border-radius: 4px;
+  }
+
+  .searchContainer .addMovie::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 4px;
+    background-color: white;
+    opacity: 0.3;
+    content: "";
+  }
+
+  .searchForm {
+    display: flex;
+  }
+
+  .searchFormElement {
+    height: 57px;
+    font-size: 20px;
+    border-radius: 4px;
+  }
+
+  /* Style for the input field */
+  .searchForm input {
+    flex-grow: 1;
+    padding-left: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    background-color: #323232;
+    color: white;
+    width: 713px;
+    opacity: 70%;
+    font-size: 20px;
+  }
+
+  .searchForm button {
+    margin: 0;
+    margin-left: 8px;
+    background-color: #F65261;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    min-width: 233px;
+    height: inherit;
+  }
