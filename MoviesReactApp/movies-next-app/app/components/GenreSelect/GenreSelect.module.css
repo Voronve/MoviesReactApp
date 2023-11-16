@@ -1,0 +1,33 @@
+.genresListWrapper {
+    background-color: #232323;
+    font: 12px 'Montserrat', sans-serif;
+    color: white;
+}
+
+.genresList {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.genresList li {
+    padding: 12px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.genresList li:hover {
+    background-color: #f0f0f0;
+    color: black;
+}
+
+.selected {
+    border-bottom: 3px solid red;
+}
+
+.moviesList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}

@@ -1,0 +1,62 @@
+.movieTile {
+    position: relative;
+    color: #8b8888;
+    width: 322px;
+    cursor: pointer;
+    margin-bottom: 40px;
+}
+
+.movieTile .movieInfo .flexContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.movieTile .movieInfo .ganres {
+    text-align: start;
+}
+
+.movieTile .movieInfo .year {
+    border: 1px solid #8b8888;
+    border-radius: 3px;
+    padding: 2px 7px;
+}
+
+.movieTile .editMenuWrapper {
+    font-size: 30px;
+    color: Gray;
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.movieTile .editMovieMenu {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #424242;
+    cursor: pointer;
+    list-style: none;
+    display: none;
+    border-radius: 3px;
+    padding-left: 0;
+}
+
+.movieTile .editMovieMenu.active {
+    display: block;
+}
+
+.movieTile .editMovieMenu li {
+    font-size: 20px;
+    padding: 10px 20px;
+}
+
+.movieTile .editMovieMenu li.close {
+    text-align: end;
+    padding: 0 14px 0 0;
+}
+.movieTile .editMovieMenu li:hover {
+    background-color: red;
+    color: white;
+}
