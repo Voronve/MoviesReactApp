@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { MovieForm } from '../../components/MovieForm/movieForm';
+import MovieFormWrapper from '../../components/browserWrappers/MovieFormWrapper';
 
 const meta = {
     title: 'New components/MovieForm',
-    component: MovieForm,
+    component: MovieFormWrapper,
     parameters: {
       layout: 'centered',
     },
     tags: ['autodocs'],
-  } satisfies Meta<typeof MovieForm>;
+  } satisfies Meta<typeof MovieFormWrapper>;
 
   export default meta;
   type Story = StoryObj<typeof meta>;

@@ -1,5 +1,5 @@
 import { ReactRenderer, type Meta, type StoryObj } from '@storybook/react';
-import SearchFormWrapper from './SearchFormWrapper';
+import SearchFormWrapper from '../../components/browserWrappers/SearchFormWrapper';
 
 const meta = {
     title: 'Old components/SearchForm',

@@ -1,4 +1,4 @@
-import { MovieListPage } from '../../components/MovieListPage/movieListPage';
+import { MovieListPage } from '../MovieListPage/movieListPage';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export default function MovieListWrapper() {

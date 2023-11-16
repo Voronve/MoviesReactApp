@@ -1,4 +1,3 @@
-import { SetURLSearchParams } from 'react-router-dom';
 import config from '../../config.json';
 import './genreSelect.css';
 

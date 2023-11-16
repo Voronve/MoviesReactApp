@@ -4,10 +4,8 @@ import React, { useState, useEffect } from 'react';
 import { GenreSelect } from '../GenreSelect/genreSelect';
 import { MovieList } from '../MovieList/movieList';
 import { SortControl, sortValue } from '../SortControl/sortControl';
-import config from '../../config.json';
 import { fetchMoviesList } from '../../utils/axios';
-import { useSearchParams, Outlet, useLocation } from 'react-router-dom';
-import { SearchForm } from '../SearchForm/searchForm';
+import { useSearchParams, Outlet } from 'react-router-dom';
 export interface MovieInfo {
     /** Movie id*/
     id: string;
@@ -16,11 +14,11 @@ export interface MovieInfo {
     /**Movie title */
     title: string;
     /**Movie release year */
-    release_date: number;
+    release_date: string;
     /**Movie janres list */
     genres: string[];
     /**Movie vote_average */
-    vote_average: number;
+    vote_average: string;
     /**Movie length */
     runtime: string;
     /**Movie overview */
@@ -39,7 +37,7 @@ export function MovieListPage() {
     let query = searchParams.get('query');
     let sortBy = searchParams.get('sortBy') as sortValue;
     let genre = searchParams.get('genre') || 'All';
-
+    let shouldUpdateList = searchParams.get('shouldUpdateList');
     if(sortBy !== sortValue.date && sortBy !== sortValue.title) sortBy = sortValue.default;
 
     const [movieList, setMovieList] = useState([] as MovieInfo[]);
@@ -64,9 +62,10 @@ export function MovieListPage() {
 
     useEffect(() => {
         if(process.env.NODE_ENV !== 'test') {
+            shouldUpdateList = null;
             fetchMoviesList(sortBy || sortValue.default, query || '', genre || '', setMovieList);
         }
-    },[sortBy, genre, query]);
+    },[sortBy, genre, query, shouldUpdateList]);
 
     return (
         <div className="movieListWrapper">

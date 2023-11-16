@@ -42,7 +42,7 @@ exports[`Testing MovieDetails component Testing movie details rendering 1`] = `
         <div
           class="year"
         >
-          1987
+          1987-05-18
         </div>
         <div
           class="runtime"

@@ -1,4 +1,3 @@
-import { SetURLSearchParams } from 'react-router-dom';
 import './sortControl.css';
 
 export enum sortValue {

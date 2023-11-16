@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { fetchMovie } from '../../utils/axios';
 import { MovieDetails } from '../MovieDetails/movieDetails';
-import { useParams } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
 
 export function MovieDetailsGetter() {
     const { movieId } = useParams();
@@ -9,9 +9,9 @@ export function MovieDetailsGetter() {
         id: '',
         title: 'Such movie is absent',
         poster_path: '',
-        release_date: 0,
+        release_date: '',
         genres: [''],
-        vote_average: 0,
+        vote_average: '',
         runtime: '',
         overview: ''
     });
@@ -29,7 +29,12 @@ export function MovieDetailsGetter() {
             }
             fetchMovieData();
         }
-    },[]);
+    });
 
-    return <MovieDetails movieData={data}/>
+    return (
+        <>
+            <MovieDetails movieData={data}/>
+            <Outlet/>
+        </>
+    )
 }
